@@ -30,7 +30,7 @@ async def root():
 ### Posts
 @app.get("/posts")
 async def posts_all(sort: str = 'Recent'):
-    return json.dumps(posts)
+    return {"Posts" : json.dumps(posts)}
 
 @app.post("/posts")
 async def post_new(title: str = '', body: str = ''):
