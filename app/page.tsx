@@ -3,9 +3,6 @@
 import Image from "next/image";
 import * as React from "react";
 import { useState } from "react";
-import "./mousetrail.css";
-import MouseTrail from "./Components/mouseTrail";
-import NavBar from "./Components/navBar";
 
 const YourComponent = () => {
   const [isHovered, setIsHovered] = useState(false);

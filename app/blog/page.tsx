@@ -2,7 +2,7 @@ import Link from "next/link";
 import Dropdown from "../Components/dropdown";
 
 type post = {
-  num: number;
+  number: string;
   title: string;
   body: string;
   date: string;
@@ -44,8 +44,9 @@ function format(text: string) {
   return month + ` ${text.substring(3, 5)},` + ` 20${text.substring(6, 8)}`;
 }
 
-function formatTitle(text: string) {
-  const ret: string = text.replaceAll(" ", "-").replaceAll(".", "");
+function formatTitle(title: string, num: string) {
+  const fir: string = num + " " + title;
+  const ret: string = fir.replaceAll(" ", "-").replaceAll(".", "");
   return ret;
 }
 
@@ -65,11 +66,13 @@ export default async function Home() {
         </div>
         <ul>
           {posts.map((post) => (
-            <li key={post.num}>
+            <li key={post.number}>
               <div className="flex px-10 py-5">
                 <div className="w-4/5 p-4">
                   <h1 className="justify-left flex text-3xl font-bold">
-                    <Link href={`/blog/${formatTitle(post.title)}`}>
+                    <Link
+                      href={`/blog/${formatTitle(post.title, post.number)}`}
+                    >
                       {" "}
                       {post.title}{" "}
                     </Link>
