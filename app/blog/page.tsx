@@ -1,3 +1,5 @@
+import Dropdown from "../Components/dropdown";
+
 type post = {
   num: number;
   title: string;
@@ -23,10 +25,16 @@ function truncate(text: string) {
 export default async function Home() {
   const posts = await getData();
   const len: number = posts.length;
+
   return (
     <div className="relative top-[12em]  mx-auto mt-8 flex max-w-screen-lg rounded-xl bg-white p-4">
       <div className="">
-        <h2>Number of Posts: {len}</h2>
+        <div className="flex px-5 py-3">
+          <h2 className="left-2 flex">Number of Posts: {len}</h2>
+          <div className="absolute right-12 rounded-full bg-slate-200 p-3">
+            <Dropdown />
+          </div>
+        </div>
         <ul>
           {posts.map((post) => (
             <li key={post.num}>
