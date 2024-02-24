@@ -14,12 +14,34 @@ const MAX_BODY_PEEK: number = 500;
 export async function getData() {
   const res = await fetch("http://0.0.0.0:7000/posts");
   const data: post[] = JSON.parse(await res.json());
+  console.log(data);
   return data;
 }
 
 function truncate(text: string) {
   const ret: string = text.substring(0, MAX_BODY_PEEK);
   return ret;
+}
+
+const months: string[] = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+function format(text: string) {
+  const month: string = months[Number(text.substring(0, 2)) - 1];
+
+  return month + ` ${text.substring(3, 5)},` + ` 20${text.substring(6, 8)}`;
 }
 
 export default async function Home() {
@@ -48,7 +70,7 @@ export default async function Home() {
                   </p>
                 </div>
                 <div className="w-1/5 p-4">
-                  <p> {post.title} </p>
+                  <p> {format(post.date)} </p>
                 </div>
               </div>
             </li>
