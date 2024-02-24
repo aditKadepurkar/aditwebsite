@@ -36,6 +36,24 @@ post2 = {
 # Creating an array of posts
 posts = [post1, post2]
 
+comment1 = {
+    "number": "1",
+    "user": "user1",
+    "stars": "0",
+    "body": "I agree with this! esting updatesLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis ex quis odio porta tristique. Duis nisl nisl, pulvinar a justo in, rutrum faucibus turpis. Quisque sagittis risus vestibulum nisi sollicitudin rhoncus. Sed at sapien vitae turpis feugiat feugiat. Nulla placerat posuere porttitor. Donec pellentesque leo ac metus condimentum, in sollicitudin metus mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce bibendum sem vitae dui fermentum, sed tempus dolor fringilla. Integer posuere erat vel gravida sagittis. Donec ac dolor interdum, pulvinar dui eu, tristique velit. Sed bibendum orci ut tortor scelerisque, vel vulputate sem ultricies. In ante turpis, accumsan non mollis sit amet, hendrerit vitae eros. Pellentesque tempor justo velit, vel pellentesque neque sagittis ac. Curabitur bibendum imperdiet metus, consectetur iaculis eros ultricies vel. Phasellus dapibus nunc in nisl congue, et suscipit justo ultrices. Internet sho",
+    "date": "02-23-24"
+}
+
+comment2 = {
+    "number": "2",
+    "user": "user2",
+    "stars": "2",
+    "body": "Wow!!",
+    "date": "02-23-24"
+}
+
+comments = [comment1, comment2]
+
 
 @app.get("/")
 async def root():
@@ -65,7 +83,7 @@ async def post_delete(id: int):
 ### Comments
 @app.get("/posts/{id}/comments")
 async def comments_all(sort: str = 'Recent'):
-    return {}
+    return comments
 
 @app.get("/posts/{id}/comments/{comment_id}")
 async def comment_get(id: int, comment_id: int):
