@@ -8,16 +8,20 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Adit Kadepurkar",
-  description: "Personal portfolio website of Adit Kadepurkar, an undergraduate student studying computer science.",
+  description:
+    "Personal portfolio website of Adit Kadepurkar, an undergraduate student studying computer science.",
 };
 
-export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      
-      <body className={`${inter.className} bg-neutral-800 text-gray`}>
-        <div className="center-top flex justify-center z-[10]">
-          <NavBar/>
+      <body
+        className={`${inter.className} text-gray z-[11] h-max bg-[/bg2.png]`}
+      >
+        <div className="center-top z-[10] flex h-max justify-center">
+          <NavBar />
         </div>
         {children}
       </body>
