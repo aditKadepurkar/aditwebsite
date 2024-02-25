@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const YourComponent = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -22,18 +22,40 @@ const YourComponent = () => {
           style={
             isHovered ? { transform: "scale(1.25)" } : { transform: "scale(1)" }
           }
-          // style={{ borderRadius: "100%",
-
-          //   // transition: "transform 0.2s ease-in-out",
-          //   // border: "0.5 rem solid rgb(255 255 255 /15%)"
-          // }}
         />
       }
     </div>
   );
 };
 
+const words = [
+  "Hi! I'm Adit! Welcome to my website!",
+  "This is a typewriter effect.",
+];
+
 export default function Home() {
+  const [currentText, setCurrentText] = useState("");
+  const firstWord = words[0];
+
+  useEffect(() => {
+    let currentIndexInWord = currentText.length;
+
+    if (currentIndexInWord === firstWord.length) {
+      return;
+    }
+    if (currentIndexInWord === 0) {
+      const timeoutId = setTimeout(() => {
+        setCurrentText(firstWord.substring(0, currentIndexInWord + 1));
+      }, 2000);
+      return () => clearTimeout(timeoutId);
+    } else {
+      const timeoutId = setTimeout(() => {
+        setCurrentText(firstWord.substring(0, currentIndexInWord + 1));
+      }, 100);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [currentText, firstWord]);
+
   return (
     <main className="flex h-screen items-center justify-center overflow-hidden bg-[url('/bg3.png')] bg-cover">
       {/* <div className="flex scale-[1] items-center justify-center "> */}
@@ -41,9 +63,12 @@ export default function Home() {
       <div className="absolute inset-0 z-[5] flex items-center justify-center">
         {YourComponent()}
       </div>
-      <div className="animate-fade-in relative z-10 translate-y-[24em] scale-[1] justify-center rounded-full bg-gray-300 p-5 ">
-        <p className="relative inset-0 z-10 flex items-center justify-center text-4xl font-bold text-white backdrop-blur">
-          Hi! I'm Adit Kadepurkar
+      <div className="animate-fade-in relative z-10 translate-y-[24em] scale-[1] justify-center rounded-full bg-neutral-800 p-7 ">
+        <p
+          id="typewriter"
+          className="relative inset-0 z-10 flex items-center justify-center text-4xl font-bold text-slate-400 backdrop-blur"
+        >
+          {currentText}
         </p>
       </div>
 

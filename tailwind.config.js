@@ -14,21 +14,13 @@ module.exports = {
         "fade-in": "fadeIn 2s ease-in-out",
         "load-nav": "loadNav 2s ease-in-out",
         pfp: "pfpCooking 2s ease-in-out",
+        typewriter: "typewriter 2s steps(23) forwards",
       },
       keyframes: {
         pfpCooking: {
           "0%": {
             src: "/me3.png",
           },
-          // '25%': {
-          //   transform: 'scale(1.1)',
-          // },
-          // '50%': {
-          //   transform: 'scale(1.)',
-          // },
-          // '75%': {
-          //   transform: 'scale(1.1)',
-          // },
           "100%": {
             src: "/me2.jpeg",
           },
@@ -52,6 +44,11 @@ module.exports = {
           },
           "100%": {
             borderRadius: "rounded-full",
+          },
+        },
+        typewriter: {
+          to: {
+            left: "100%",
           },
         },
         grow: {
