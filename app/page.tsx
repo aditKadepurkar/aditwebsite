@@ -37,15 +37,16 @@ export default function Home() {
   return (
     <main className="flex h-screen items-center justify-center overflow-hidden bg-[url('/bg3.png')] bg-cover">
       {/* <div className="flex scale-[1] items-center justify-center "> */}
-      <div className="animate-grow relative h-[70rem] w-[100rem] scale-[2] rounded-full">
-        {/* bg-gradient-to-br from-[#537bf4] to-[#a601ff]"> */}
-        <p className="animate-fade-in absolute inset-0 z-10 flex translate-y-[6em] items-center justify-center text-4xl font-bold text-white">
-          Hi! I'm Adit Kadepurkar
-        </p>
-      </div>
+
       <div className="absolute inset-0 z-[5] flex items-center justify-center">
         {YourComponent()}
       </div>
+      <div className="animate-fade-in relative z-10 translate-y-[24em] scale-[1] justify-center rounded-full bg-gray-300 p-5 ">
+        <p className="relative inset-0 z-10 flex items-center justify-center text-4xl font-bold text-white backdrop-blur">
+          Hi! I'm Adit Kadepurkar
+        </p>
+      </div>
+
       {/* </div> */}
     </main>
   );
