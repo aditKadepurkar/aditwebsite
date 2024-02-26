@@ -70,7 +70,7 @@ export default function Home() {
       <div className="absolute left-16 z-[5] flex-col items-center justify-between">
         <Link href={"https://github.com/aditKadepurkar"} className="z-10 m-10">
           <Image
-            className=" relative scale-100 overflow-hidden  shadow-2xl shadow-slate-400 transition duration-1000 ease-in-out"
+            className="relative scale-100 overflow-hidden shadow-2xl  shadow-slate-400 transition duration-100 ease-in-out hover:scale-105"
             src="/github.png"
             alt="/github.png"
             width={90}
@@ -83,7 +83,7 @@ export default function Home() {
           className="z-10 m-10"
         >
           <Image
-            className=" relative -z-10 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900 transition duration-1000 ease-in-out"
+            className="relative -z-10 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900 transition duration-100 ease-in-out hover:scale-105"
             src="/linkedin.png"
             alt="/linkedin.png"
             width={90}
