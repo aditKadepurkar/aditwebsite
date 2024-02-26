@@ -75,7 +75,7 @@ export default function Home() {
             alt="/github.png"
             width={90}
             height={90}
-            // priority
+            priority
           />
         </Link>
         <Link
