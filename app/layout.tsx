@@ -12,19 +12,23 @@ export const metadata: Metadata = {
     "Personal portfolio website of Adit Kadepurkar, an undergraduate student studying computer science.",
 };
 
+//👇 Configure our font object
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
-        className={`${inter.className} text-gray z-[11] h-max bg-[/bg2.png]`}
+        className={`${inter.className} text-gray z-[11] h-max bg-[url('/bg3.png')] bg-cover bg-no-repeat`}
       >
         <div className="top-5 z-[10] flex justify-center">
           <NavBar />
         </div>
-        {children}
-        <div className="absolute inset-x-0 bottom-0">
+        <div className="relative mb-[20em] flex-grow scroll-p-10">
+          {children}
+        </div>
+        <div className="relative bottom-0">
           <Footer />
         </div>
       </body>

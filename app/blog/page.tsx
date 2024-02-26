@@ -55,7 +55,7 @@ export default async function Home() {
   const len: number = posts.length;
 
   return (
-    <div className="relative top-[12em]  mx-auto mt-8 flex max-w-screen-lg rounded-xl bg-white p-4">
+    <div className="relative top-[12em]  mx-auto mt-8 flex max-w-screen-lg rounded-xl bg-white p-4 shadow-2xl shadow-gray-900">
       <div className="">
         <div className="flex px-5 py-3">
           <h2 className="left-2 flex">Number of Posts: {len}</h2>
@@ -69,12 +69,12 @@ export default async function Home() {
             <li key={post.number}>
               <div className="flex px-10 py-5">
                 <div className="w-4/5 p-4">
-                  <h1 className="justify-left flex text-3xl font-bold">
+                  <h1 className="justify-left font-bold-100 flex text-3xl text-blue-600">
                     <Link
                       href={`/blog/${formatTitle(post.title, post.number)}`}
                     >
                       {" "}
-                      {post.title}{" "}
+                      <a className="font-bold">{post.title} </a>{" "}
                     </Link>
                   </h1>
                   <p className="justify-left whitespace-wrap overflow-ellipsis text-base">

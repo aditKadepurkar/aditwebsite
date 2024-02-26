@@ -4,7 +4,7 @@ import Image from "next/image";
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-const YourComponent = () => {
+const Pfp = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -57,11 +57,11 @@ export default function Home() {
   }, [currentText, firstWord]);
 
   return (
-    <main className="flex h-screen items-center justify-center overflow-hidden bg-[url('/bg3.png')] bg-cover">
+    <main className="flex h-screen items-center justify-center overflow-hidden">
       {/* <div className="flex scale-[1] items-center justify-center "> */}
 
       <div className="absolute inset-0 z-[5] flex items-center justify-center">
-        {YourComponent()}
+        {Pfp()}
       </div>
       <div className="animate-fade-in relative z-10 translate-y-[24em] scale-[1] justify-center rounded-full bg-neutral-800 p-7 ">
         <p
