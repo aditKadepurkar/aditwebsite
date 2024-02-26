@@ -15,8 +15,17 @@ module.exports = {
         "load-nav": "loadNav 2s ease-in-out",
         pfp: "pfpCooking 2s ease-in-out",
         typewriter: "typewriter 2s steps(23) forwards",
+        // icon: "",
       },
       keyframes: {
+        // icon: {
+        //   "0%": {
+        //     src: "/me3.png",
+        //   },
+        //   "100%": {
+        //     src: "/me2.jpeg",
+        //   },
+        // },
         pfpCooking: {
           "0%": {
             src: "/me3.png",
