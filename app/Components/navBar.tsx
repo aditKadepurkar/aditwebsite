@@ -1,14 +1,39 @@
-import React from 'react'
-import Link from 'next/link'
+import React from "react";
+import Link from "next/link";
 
 export default function navBar() {
   return (
-    <div className = "top-[5em] absolute z-10 bg-gray-500 h-[3em] rounded-lg flex items-center text-white font-bold text-xl center-top overflow-hidden justify-between w-[35%] mx-10 animate-load-nav">
-      <Link href="/" className="bg-gray-500 hover:bg-gray-700 transition: duration-500 ease-out text-white font-bold py-2 px-4 box-sizing: border-box rounded-full mx-[0.5em]">Home</Link>
-      <Link href="/projects" className="bg-gray-500 hover:bg-gray-700 transition: duration-500 ease-out text-white font-bold py-2 px-4 box-sizing: border-box rounded-full mx-[0.5em]">Projects</Link>
-      <Link href = "/test" className="bg-gray-500 hover:bg-gray-700 transition: duration-500 ease-out text-white font-bold py-2 px-4 box-sizing: border-box rounded-full mx-[0.5em]">Button 3</Link>
-      <Link href = "/blog" className="bg-gray-500 hover:bg-gray-700 transition: duration-500 ease-out text-white font-bold py-2 px-4 box-sizing: border-box rounded-full mx-[0.5em]">Blog</Link>
-      <Link href = "/about" className="bg-gray-500 hover:bg-gray-700 transition: duration-500 ease-out text-white font-bold py-2 px-4 box-sizing: border-box rounded-full mx-[0.5em]">About Me</Link>
+    <div className="center-top animate-load-nav absolute top-[5em] z-10 mx-10 flex h-[3em] w-[35%] items-center justify-between overflow-hidden rounded-lg bg-stone-800 text-xl font-bold text-white">
+      <Link
+        href="/"
+        className="transition: box-sizing: border-box mx-[0.5em] rounded-full bg-stone-800 px-4 py-2 font-bold text-white duration-500 ease-out hover:bg-stone-700"
+      >
+        Home
+      </Link>
+      <Link
+        href="/projects"
+        className="transition: box-sizing: border-box mx-[0.5em] rounded-full bg-stone-800 px-4 py-2 font-bold text-white duration-500 ease-out hover:bg-stone-700"
+      >
+        Projects
+      </Link>
+      <Link
+        href="/test"
+        className="transition: box-sizing: border-box mx-[0.5em] rounded-full bg-stone-800 px-4 py-2 font-bold text-white duration-500 ease-out hover:bg-stone-700"
+      >
+        Button 3
+      </Link>
+      <Link
+        href="/blog"
+        className="transition: box-sizing: border-box mx-[0.5em] rounded-full bg-stone-800 px-4 py-2 font-bold text-white duration-500 ease-out hover:bg-stone-700"
+      >
+        Blog
+      </Link>
+      <Link
+        href="/about"
+        className="transition: box-sizing: border-box mx-[0.5em] rounded-full bg-stone-800 px-4 py-2 font-bold text-white duration-500 ease-out hover:bg-stone-700"
+      >
+        About Me
+      </Link>
     </div>
-  )
+  );
 }

@@ -28,7 +28,7 @@ const Typewriter: React.FC<TypewriterProps> = ({ text, text2, text3 }) => {
                 currentIndexInWord - text.length + 1,
               ),
           );
-        }, 90);
+        }, 70);
         return () => clearTimeout(timeoutId);
       }
     }
@@ -42,20 +42,28 @@ const Typewriter: React.FC<TypewriterProps> = ({ text, text2, text3 }) => {
       } else if (currentIndexInWord < firstWord.length) {
         const timeoutId = setTimeout(() => {
           setCurrentText(firstWord.substring(0, currentIndexInWord + 1));
-        }, 90);
+        }, 70);
         return () => clearTimeout(timeoutId);
       }
       // Start deleting text2 after typing text1 + text2
       if (currentIndexInWord === firstWord.length) {
+        const timeoutId = setTimeout(() => {
+          setCurrentText(currentText);
+        }, 2000);
         setDeleting(true);
-        return;
+        return () => clearTimeout(timeoutId);
       }
     } else {
       // Deleting text2
-      if (currentIndexInWord > text.length) {
+      if (currentIndexInWord === firstWord.length) {
         const timeoutId = setTimeout(() => {
           setCurrentText(firstWord.substring(0, currentIndexInWord - 1));
-        }, 90);
+        }, 500);
+        return () => clearTimeout(timeoutId);
+      } else if (currentIndexInWord > text.length) {
+        const timeoutId = setTimeout(() => {
+          setCurrentText(firstWord.substring(0, currentIndexInWord - 1));
+        }, 50);
         return () => clearTimeout(timeoutId);
       } else {
         setDeleting(false); // Reset deleting state after deleting text2

@@ -51,14 +51,16 @@ export default async function Home({ params: { post } }) {
   const postData: post = await getData(Number(post.substring(0, 1)));
 
   return (
-    <div className="relative top-[12em]  mx-auto mb-8 mt-8 flex max-w-screen-lg flex-col rounded-xl bg-white p-4 shadow-2xl shadow-gray-900">
+    <div className="relative top-[12em]  mx-auto mb-8 mt-8 flex max-w-screen-lg flex-col rounded-xl bg-stone-800 p-4 shadow-2xl shadow-gray-900">
       <div className="flex px-10 py-5">
         <div className="p-4">
-          <h1 className="justify-left flex py-3 text-3xl font-bold">
+          <h1 className="justify-left flex py-3 text-3xl font-bold text-slate-200">
             {postData.title}
           </h1>
-          <p className="py-5"> {format(postData.date)} </p>
-          <p className="justify-left py-5 text-lg">{postData.body}</p>
+          <p className="py-5 text-slate-200"> {format(postData.date)} </p>
+          <p className="justify-left py-5 text-lg text-slate-200">
+            {postData.body}
+          </p>
         </div>
       </div>
       <div className="rounded-2xl bg-slate-300 p-3 pb-10">

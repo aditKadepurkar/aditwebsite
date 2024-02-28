@@ -55,10 +55,10 @@ export default async function Home() {
   const len: number = posts.length;
 
   return (
-    <div className="relative top-[12em]  mx-auto mt-8 flex max-w-screen-lg rounded-xl bg-white p-4 shadow-2xl shadow-gray-900">
+    <div className="relative top-[12em]  mx-auto mt-8 flex max-w-screen-lg rounded-xl bg-stone-800 p-4 shadow-2xl shadow-gray-900">
       <div className="">
         <div className="flex px-5 py-3">
-          <h2 className="left-2 flex">Number of Posts: {len}</h2>
+          <h2 className="left-2 flex text-slate-200">Number of Posts: {len}</h2>
           <div className="absolute right-12 rounded-full bg-slate-200 p-3">
             <Dropdown />{" "}
             {/* I want to update this at some point, might work off of how wings handles fieldselectmodal */}
@@ -69,7 +69,7 @@ export default async function Home() {
             <li key={post.number}>
               <div className="flex px-10 py-5">
                 <div className="w-4/5 p-4">
-                  <h1 className="justify-left font-bold-100 flex text-3xl text-blue-600">
+                  <h1 className="justify-left font-bold-100 flex text-3xl text-blue-400">
                     <Link
                       href={`/blog/${formatTitle(post.title, post.number)}`}
                     >
@@ -77,12 +77,12 @@ export default async function Home() {
                       <a className="font-bold">{post.title} </a>{" "}
                     </Link>
                   </h1>
-                  <p className="justify-left whitespace-wrap overflow-ellipsis text-base">
+                  <p className="justify-left whitespace-wrap overflow-ellipsis text-base text-slate-200">
                     {truncate(post.body)}...
                   </p>
                 </div>
                 <div className="w-1/5 p-4">
-                  <p> {format(post.date)} </p>
+                  <p className="text-slate-200"> {format(post.date)} </p>
                 </div>
               </div>
             </li>
