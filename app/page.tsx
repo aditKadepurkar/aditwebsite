@@ -7,13 +7,17 @@ import Pfp from "./Components/pfp";
 export default function Home() {
   return (
     <main className="flex h-screen items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-[5] flex items-center justify-center">
+      <div className="animate-appear absolute inset-0 z-[5] flex items-center justify-center">
         <Pfp />
       </div>
-      <div className="animate-fade-in relative z-10 translate-y-[24em] scale-[1] justify-center overflow-hidden rounded-full bg-neutral-800 p-7 ">
-        <Typewriter text="Hi! I'm Adit! Welcome to my website!" />
+      <div className="animate-fade-in relative z-10 translate-y-[24em] scale-[1] justify-center overflow-hidden rounded-full bg-neutral-800 p-10 ">
+        <Typewriter
+          text="Hi! I'm Adit!"
+          text2=" Welcome to my website!"
+          text3=" Take a look around!"
+        />
       </div>
-      <div className="absolute left-16 z-[5] flex-col items-center justify-between">
+      <div className="animate-fade-left absolute left-16 z-[5] flex-col items-center justify-between">
         <Link href={"https://github.com/aditKadepurkar"} className="z-10 m-10">
           <Image
             className="relative scale-100 overflow-hidden shadow-2xl  shadow-slate-400 transition duration-100 ease-in-out hover:scale-105"

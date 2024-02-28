@@ -16,8 +16,26 @@ module.exports = {
         pfp: "pfpCooking 2s ease-in-out",
         typewriter: "typewriter 2s steps(23) forwards",
         icon: "icon 2s ease-in-out",
+        "fade-left": "fadeInLeft 2s ease-in-out",
+        appear: "appear 2s ease-in-out",
       },
       keyframes: {
+        appear: {
+          "0%": {
+            transform: "scale(0)",
+          },
+          "30%": {
+            transform: "scale(0)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
+        fadeInLeft: {
+          "0%": { opacity: "0", transform: "translateX(-24em)" },
+          "30%": { opacity: "0", transform: "translateX(-24em)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
         icon: {
           "0%": {
             transform: "scale(0.9)",
@@ -35,9 +53,9 @@ module.exports = {
           },
         },
         loadNav: {
-          "0%": { opacity: "0" },
-          "30%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          "0%": { opacity: "0", transform: "translateY(-30em)" },
+          "30%": { opacity: "0", transform: "translateY(-30em)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         fadeIn: {
           "0%": { opacity: "0", transform: "translateY(0)" },
