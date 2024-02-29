@@ -1,4 +1,6 @@
+from fastapi import FastAPI
 import uvicorn
-from api.index import app
 import os
 import psycopg2
+
+app = FastAPI()

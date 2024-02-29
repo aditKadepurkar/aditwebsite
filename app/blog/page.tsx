@@ -10,9 +10,8 @@ type post = {
 
 const MAX_BODY_PEEK: number = 500;
 
-// This will probably need to be moved to the pages folder(to be created)
-// because nextjs doesn't like use having this here
-export async function getData() {
+
+async function getData() {
   const res = await fetch("http://0.0.0.0:7000/posts");
   const data: post[] = JSON.parse(await res.json());
   return data;

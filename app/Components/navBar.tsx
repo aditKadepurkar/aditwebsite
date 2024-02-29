@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default function navBar() {
+const navBar = () => {
   return (
     <div className="center-top animate-load-nav absolute top-[5em] z-10 mx-10 flex h-[3em] w-[35%] items-center justify-between overflow-hidden rounded-lg bg-stone-800 text-xl font-bold text-white">
       <Link
@@ -37,3 +37,4 @@ export default function navBar() {
     </div>
   );
 }
+export default navBar;

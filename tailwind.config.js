@@ -18,6 +18,7 @@ module.exports = {
         icon: "icon 2s ease-in-out",
         "fade-left": "fadeInLeft 2s ease-in-out",
         appear: "appear 2s ease-in-out",
+        "fade-right": "fadeInRight 2s ease-in-out"
       },
       keyframes: {
         appear: {
@@ -34,6 +35,11 @@ module.exports = {
         fadeInLeft: {
           "0%": { opacity: "0", transform: "translateX(-24em)" },
           "30%": { opacity: "0", transform: "translateX(-24em)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        fadeInRight: {
+          "0%": { opacity: "0", transform: "translateX(34em)" },
+          "30%": { opacity: "0", transform: "translateX(34em)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
         icon: {
