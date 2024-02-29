@@ -120,7 +120,11 @@ projects = [project1]
 
 @app.get("/projects")
 async def projects_all(sort: str = 'Recent'):
-    return json.dumps(projects)
+    return {json.dumps(projects)}
+
+@app.get("/projects/featured")
+async def projects_all(sort: str = 'Recent'):
+    return {json.dumps(projects[0])}
 
 @app.post("/projects")
 async def post_new(title: str = '', body: str = ''):

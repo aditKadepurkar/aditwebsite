@@ -22,13 +22,14 @@ function truncate(text: string) {
 }
 
 async function getData() {
-  const res = await fetch("http://0.0.0.0:7000/projects");
-  const data: Project[] = JSON.parse(await res.json());
+  const res = await fetch("http://0.0.0.0:7000/projects/featured");
+  const data: Project = JSON.parse(await res.json());
   return data;
 }
 
+
 export default async function Home() {
-  const project = (await getData())[0]
+  const project: Project= await getData()
 
   return (
     <main className="flex h-screen items-center justify-center overflow-hidden">
@@ -67,12 +68,12 @@ export default async function Home() {
           />
         </Link>
       </div>
-      <div className="absolute right-16 z-5 items-center w-80 animate-fade-right">
-        <div className="bg-neutral-800 rounded-2xl p-5">
+      <div className="absolute right-16 z-50 items-center w-80 animate-fade-right">
+        <div className="bg-neutral-800 rounded-2xl p-5 scale-100 transition duration-100 ease-in-out hover:scale-105">
           <div className="flex py-3">
             <h1 className="w-3/5 text-zinc-200 text-2xl font-bold m-auto px-2 text-center">{project.title}</h1>
             <Image
-              className="w-2/5 relative z-10 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900 transition duration-100 ease-in-out hover:scale-105"
+              className="w-2/5 relative z-10 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900"
               src= {`${project.src}`}
               alt="/linkedin.png"
               width={70}
