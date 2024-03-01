@@ -1,19 +1,12 @@
 import Link from "next/link";
-import Dropdown from "../Components/dropdown";
-
-type post = {
-  number: string;
-  title: string;
-  body: string;
-  date: string;
-};
+import Dropdown from "@Components/dropdown";
+import { Post } from "@Components/types";
 
 const MAX_BODY_PEEK: number = 500;
 
-
 async function getData() {
   const res = await fetch("http://0.0.0.0:7000/posts");
-  const data: post[] = JSON.parse(await res.json());
+  const data: Post[] = JSON.parse(await res.json());
   return data;
 }
 

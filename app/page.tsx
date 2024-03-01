@@ -1,18 +1,9 @@
-import Typewriter from "./Components/typewriter";
+import Typewriter from "@Components/typewriter";
 import Image from "next/image";
 import * as React from "react";
 import Link from "next/link";
-import Pfp from "./Components/pfp";
-import ProjectLoader from "./Components/project";
-
-type Project = {
-  number: string;
-  title: string;
-  authors: string[];
-  description: string;
-  date: string;
-  src: string;
-};
+import Pfp from "@Components/pfp";
+import { Project } from "@Components/types";
 
 const MAX_BODY_PEEK = 100;
 
@@ -27,9 +18,8 @@ async function getData() {
   return data;
 }
 
-
 export default async function Home() {
-  const project: Project= await getData()
+  const project: Project = await getData();
 
   return (
     <main className="flex h-screen items-center justify-center overflow-hidden">
@@ -68,19 +58,23 @@ export default async function Home() {
           />
         </Link>
       </div>
-      <div className="absolute right-16 z-50 items-center w-80 animate-fade-right">
-        <div className="bg-neutral-800 rounded-2xl p-5 scale-100 transition duration-100 ease-in-out hover:scale-105">
+      <div className="animate-fade-right absolute right-16 z-50 w-80 items-center">
+        <div className="scale-100 rounded-2xl bg-neutral-800 p-5 transition duration-100 ease-in-out hover:scale-105">
           <div className="flex py-3">
-            <h1 className="w-3/5 text-zinc-200 text-2xl font-bold m-auto px-2 text-center">{project.title}</h1>
+            <h1 className="m-auto w-3/5 px-2 text-center text-2xl font-bold text-zinc-200">
+              {project.title}
+            </h1>
             <Image
-              className="w-2/5 relative z-10 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900"
-              src= {`${project.src}`}
+              className="relative z-10 w-2/5 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900"
+              src={`${project.src}`}
               alt="/linkedin.png"
               width={70}
               height={70}
             />
           </div>
-          <p className="text-zinc-400 text-ellipsis">{truncate(project.description)}</p>
+          <p className="text-ellipsis text-zinc-400">
+            {truncate(project.description)}
+          </p>
         </div>
       </div>
     </main>

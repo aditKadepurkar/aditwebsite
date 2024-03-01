@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "./Components/footer";
-import NavBar from "./Components/navBar";
+import Footer from "@Components/footer";
+import NavBar from "@Components/navBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,8 +11,6 @@ export const metadata: Metadata = {
   description:
     "Personal portfolio website of Adit Kadepurkar, an undergraduate student studying computer science.",
 };
-
-//👇 Configure our font object
 
 export default function RootLayout({
   children,

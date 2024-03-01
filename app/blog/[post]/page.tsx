@@ -1,27 +1,14 @@
-type post = {
-  number: number;
-  title: string;
-  body: string;
-  date: string;
-};
-
-type comment = {
-  number: string;
-  user: string;
-  stars: number;
-  body: string;
-  date: string;
-};
+import { Post, Comment } from "@Components/types";
 
 async function getData(num: number) {
   const res = await fetch(`http://0.0.0.0:7000/posts/${num - 1}`);
-  const data: post = JSON.parse(await res.json());
+  const data: Post = JSON.parse(await res.json());
   return data;
 }
 async function getComments(num: number) {
   const res = await fetch(`http://0.0.0.0:7000/posts/${num - 1}/comments`);
   const jsonString = await res.json();
-  const jsonData: comment[] = jsonString;
+  const jsonData: Comment[] = jsonString;
   return jsonData;
 }
 
@@ -47,8 +34,8 @@ function format(text: string) {
 }
 
 export default async function Home({ params: { post } }) {
-  const comments: comment[] = await getComments(Number(post.substring(0, 1)));
-  const postData: post = await getData(Number(post.substring(0, 1)));
+  const comments: Comment[] = await getComments(Number(post.substring(0, 1)));
+  const postData: Post = await getData(Number(post.substring(0, 1)));
 
   return (
     <div className="relative top-[12em]  mx-auto mb-8 mt-8 flex max-w-screen-lg flex-col rounded-xl bg-stone-800 p-4 shadow-2xl shadow-gray-900">
