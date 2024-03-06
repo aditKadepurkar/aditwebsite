@@ -5,6 +5,7 @@ import { Post } from "@Components/types";
 const MAX_BODY_PEEK: number = 500;
 
 async function getData() {
+  //use axios
   const res = await fetch("http://0.0.0.0:7000/posts");
   const data: Post[] = JSON.parse(await res.json());
   return data;

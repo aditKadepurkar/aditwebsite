@@ -36,7 +36,7 @@ const ProjectModal = (props: ProjectProps) => {
   } else {
     return (
       <div
-        className="h-70 relative w-80 scale-100 rounded-2xl bg-neutral-800 p-5 transition duration-100 ease-in-out "
+        className="h-70 relative w-80 scale-100 rounded-2xl bg-neutral-800 p-5 transition duration-100 ease-in-out"
         onMouseEnter={() => setIsHovered(true)}
       >
         <div className="flex py-3">
