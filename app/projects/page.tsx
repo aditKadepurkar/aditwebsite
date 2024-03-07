@@ -23,11 +23,13 @@ export default async function Home() {
       <ul>
         {projects.map((project) => (
           <li key={project.number}>
-            <ProjectModal
-              title={project.title}
-              src={project.src}
-              desc={project.description}
-            />
+            <div className="relative">
+              <ProjectModal
+                title={project.title}
+                src={project.src}
+                desc={project.description}
+              />
+            </div>
           </li>
         ))}
       </ul>

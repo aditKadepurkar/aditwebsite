@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Dropdown from "@Components/dropdown";
 import { Post } from "@Components/types";
+const axios = require('axios');
+
+
 
 const MAX_BODY_PEEK: number = 500;
 
