@@ -16,7 +16,7 @@ function loginModal() {
     const handleLogin = async () => {
       setIsLoading(true);
       try {
-        await login(); 
+        await login();
         // Redirect to home page or perform other actions upon successful login
       } catch (error) {
         // Handle login error

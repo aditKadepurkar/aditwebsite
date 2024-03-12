@@ -19,8 +19,8 @@ export type ProjectProps = {
 const ProjectModal = (props: ProjectProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const hoverContent = (
-    <div className={`absolute top-0 left-0 w-full h-full flex-col justify-center items-center
-    text-center text-2xl font-bold z-10 transition duration-300 ease-in-out flex py-3 ${isHovered ? "opacity-100" : "opacity-0"}`}>
+    <div className={`absolute p-4 top-0 left-0 w-full h-full flex-col justify-center items-center
+    text-center text-2xl font-bold z-10 transition duration-300 ease-in-out flex py-6 ${isHovered ? "opacity-100" : "opacity-0"}`}>
       <h1 className="m-auto px-2 text-center text-2xl font-bold text-zinc-200">
         {props.title}
       </h1>
@@ -28,21 +28,20 @@ const ProjectModal = (props: ProjectProps) => {
     </div>
   );
   const defaultContent = (
-    <div className={`absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center
+    <div className={`relative p-4 overflow-hidden top-0 left-0 w-full h-full flex flex-col justify-center items-center
     text-center text-2xl font-bold z-10 transition duration-300 ease-in-out ${isHovered ? "opacity-0" : "opacity-100"}`}>
       <div className={`flex py-3`}>
         <h1 className="m-auto w-3/5 px-2 text-center text-2xl font-bold text-zinc-200">
           {props.title}
         </h1>
         <Image
-          className="relative z-10 w-2/5 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900"
+          className="relative -z-10 w-2/5 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900"
           src={`${props.src}`}
           alt="/linkedin.png"
-          width={70}
-          height={70}
+          width={100}
+          height={100}
         />
       </div>
-      <p className={`text-ellipsis text-zinc-400`}>{truncate(props.desc)}</p>
     </div>
 
   )
