@@ -22,9 +22,8 @@ export default async function Home() {
     <div className="relative top-[12em] mx-10 mt-8 flex-wrap rounded-xl bg-stone-800 p-10 shadow-2xl shadow-gray-900">
       <ul className="flex flex-wrap items-center justify-center">
         {projects.map((project) => (
-          <div className="p-10">
             <li key={project.number}>
-              <div className="">
+              <div className="p-10">
                 <ProjectModal
                   title={project.title}
                   src={project.src}
@@ -32,7 +31,6 @@ export default async function Home() {
                 />
               </div>
             </li>
-          </div>
         ))}
       </ul>
     </div>
