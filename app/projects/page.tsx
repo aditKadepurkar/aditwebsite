@@ -19,11 +19,11 @@ function truncate(text: string) {
 export default async function Home() {
   const projects = await getData();
   return (
-    <div className="relative top-[12em] mx-10 mt-8 flex-wrap rounded-xl bg-stone-800 p-10 shadow-2xl shadow-gray-900">
+    <div className="relative md:top-[12em] top-[6em] mx-10 md:mt-8 mt-2 flex-wrap rounded-xl bg-stone-800 p-10 shadow-2xl shadow-gray-900">
       <ul className="flex flex-wrap items-center justify-center">
         {projects.map((project) => (
             <li key={project.number}>
-              <div className="p-10">
+              <div className="md:p-10 p-5">
                 <ProjectModal
                   title={project.title}
                   src={project.src}

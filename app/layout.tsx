@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} text-gray z-[11] h-max bg-[url('/bg3.png')] bg-cover bg-no-repeat`}
       >
-        <div className="absolute top-10 right-10 z-10">
+        <div className="hidden absolute top-10 right-10 z-10">
           <LoginButton/>
         </div>
         <div className="top-5 z-[10] flex justify-center">
