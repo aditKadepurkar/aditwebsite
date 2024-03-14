@@ -19,18 +19,20 @@ function truncate(text: string) {
 export default async function Home() {
   const projects = await getData();
   return (
-    <div className="relative top-[12em]  mx-auto mt-8 max-w-screen-xl flex-col flex-wrap rounded-xl bg-stone-800 p-10 shadow-2xl shadow-gray-900">
-      <ul>
+    <div className="relative top-[12em] mx-10 mt-8 flex-wrap rounded-xl bg-stone-800 p-10 shadow-2xl shadow-gray-900">
+      <ul className="flex flex-wrap items-center justify-center">
         {projects.map((project) => (
-          <li key={project.number}>
-            <div className="relative">
-              <ProjectModal
-                title={project.title}
-                src={project.src}
-                desc={project.description}
-              />
-            </div>
-          </li>
+          <div className="p-10">
+            <li key={project.number}>
+              <div className="">
+                <ProjectModal
+                  title={project.title}
+                  src={project.src}
+                  desc={project.description}
+                />
+              </div>
+            </li>
+          </div>
         ))}
       </ul>
     </div>

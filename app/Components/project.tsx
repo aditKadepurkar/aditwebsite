@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 const MAX_BODY_PEEK = 100;
 
@@ -25,6 +26,16 @@ const ProjectModal = (props: ProjectProps) => {
         {props.title}
       </h1>
       <p className="text-ellipsis text-zinc-400">{truncate(props.desc)}</p>
+      <Link href={"https://github.com/aditKadepurkar"} className="z-10 m-10">
+          <Image
+            className="relative scale-100 overflow-hidden transition duration-100 ease-in-out hover:scale-105"
+            src="/github-mark-white.svg"
+            alt="project github link"
+            width={90}
+            height={90}
+            priority
+          />
+        </Link>
     </div>
   );
   const defaultContent = (
@@ -48,7 +59,7 @@ const ProjectModal = (props: ProjectProps) => {
 
   return (
     <div
-      className={`relative h-70 w-80 scale-100 rounded-2xl bg-neutral-900 p-5 m-auto my-3 transition duration-300 ease-in-out`}
+      className={`relative h-[26rem] w-[30rem] scale-100 rounded-2xl bg-neutral-900 p-5 m-auto my-3 transition duration-300 ease-in-out overflow-hidden`}
       onMouseEnter={() => setIsHovered(true)}
     onMouseLeave={() => setIsHovered(false)}
     >
