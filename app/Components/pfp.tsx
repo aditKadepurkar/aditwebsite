@@ -8,7 +8,7 @@ const Pfp = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className={`absolute place-items-center`}>
+    <div className={`absolute md:place-items-center`}>
       {
         <Image
           className="relative scale-100 cursor-default overflow-hidden rounded-full shadow-2xl shadow-gray-900 transition duration-1000 ease-in-out"

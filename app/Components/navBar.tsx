@@ -12,7 +12,6 @@ const navBar = () => {
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
         </button>
-
       </div>
       <div className="hidden center-top animate-load-nav absolute top-[5em] z-10 mx-10 md:flex h-[3em] w-[40rem] items-center justify-between overflow-hidden rounded-lg bg-stone-800 text-xl font-bold text-white">
         <Link

@@ -23,7 +23,7 @@ export default async function Home() {
 
   return (
     <main className="flex h-screen items-center justify-center overflow-hidden">
-      <div className="animate-appear absolute inset-0 z-[5] flex items-center justify-center">
+      <div className="md:animate-appear absolute z-[5] flex items-center scale-50 md:scale-100 inset-0 md:justify-center">
         <Pfp />
       </div>
       <div className="animate-fade-in relative z-10 translate-y-[24em] scale-[1] justify-center overflow-hidden rounded-full bg-neutral-800 p-10 ">
