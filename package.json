@@ -5,9 +5,9 @@
   "scripts": {
     "fastapi-dev": "pip3 install -r requirements.txt && python3 -m uvicorn api.index:app --reload --port 7000",
     "next-dev": "npm list next || npm install next && next dev",
-    "dev": "concurrently \"npm run next-dev\" \"npm run fastapi-dev\"",
+    "dev": "npm run next-dev", 
     "build": "next build",
-    "start": "next start",
+    "start": "next start && python3 -m uvicorn api.index:app --port 7000",
     "lint": "next lint"
   },
   "dependencies": {

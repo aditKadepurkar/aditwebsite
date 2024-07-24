@@ -13,8 +13,6 @@ export const metadata: Metadata = {
     "Personal portfolio website of Adit Kadepurkar, an undergraduate student studying computer science.",
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

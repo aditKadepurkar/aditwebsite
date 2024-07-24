@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useState } from "react"
 
 async function login() {
+    // Implement login logic here
+    const ret = await fetch("http://0.0.0.0:7000/login", {method: "POST", body: JSON.stringify({username: "username", password: "password"})});
+    const data = await ret.json();
     
 }
 
