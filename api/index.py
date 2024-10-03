@@ -1,6 +1,6 @@
 import os
 from fastapi import FastAPI
-import psycopg2
+# import psycopg2
 import json
 from api.main import app
 

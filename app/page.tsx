@@ -28,7 +28,7 @@ export default async function Home() {
       </div>
       <div className="animate-fade-in relative z-10 translate-y-[24em] scale-[1] justify-center overflow-hidden rounded-full bg-neutral-800 p-10 ">
         <Typewriter
-          text="People's dreams will never end!"
+          text="Hey! Take a look around!"
           text2=" "
           text3=""
         />

@@ -33,7 +33,13 @@ function format(text: string) {
   return month + ` ${text.substring(3, 5)},` + ` 20${text.substring(6, 8)}`;
 }
 
-export default async function Home({ params: { post } }) {
+interface Params {
+  params: {
+    post: string;
+  };
+}
+
+export default async function Home({ params: { post } }: Params) {
   const comments: Comment[] = await getComments(Number(post.substring(0, 1)));
   const postData: Post = await getData(Number(post.substring(0, 1)));
 

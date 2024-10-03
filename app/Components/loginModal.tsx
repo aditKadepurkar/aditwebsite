@@ -11,7 +11,7 @@ async function login() {
     
 }
 
-function loginModal() { 
+function LoginModal() { 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -59,4 +59,4 @@ function loginModal() {
         </div>
     )
 }
-export default loginModal;
+export default LoginModal;

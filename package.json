@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "fastapi-dev": "pip3 install -r requirements.txt && python3 -m uvicorn api.index:app --reload --port 7000",
+    "fastapi-dev": "/opt/homebrew/anaconda3/bin/python -m uvicorn api.index:app --reload --port 7000",
     "next-dev": "npm list next || npm install next && next dev",
-    "dev": "npm run next-dev", 
+    "dev": "npm run next-dev",
     "build": "next build",
-    "start": "next start && python3 -m uvicorn api.index:app --port 7000",
+    "start": "npm run next-dev && python -m uvicorn api.index:app --port 7000",
     "lint": "next lint"
   },
   "dependencies": {
