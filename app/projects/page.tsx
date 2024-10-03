@@ -7,7 +7,8 @@ const MAX_BODY_PEEK = 100;
 
 async function getData() {
   const res = await fetch("http://0.0.0.0:7000/projects");
-  const data: Project[] = JSON.parse(await res.json());
+  const dat = await res.json();
+  const data: Project[] = JSON.parse(dat);
   return data;
 }
 
@@ -28,6 +29,8 @@ export default async function Home() {
                   title={project.title}
                   src={project.src}
                   desc={project.description}
+                  github={project.github}
+                  website={project.website}
                 />
               </div>
             </li>

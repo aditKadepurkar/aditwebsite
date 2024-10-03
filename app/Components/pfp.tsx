@@ -20,7 +20,7 @@ const Pfp = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           style={
-            isHovered ? { transform: "scale(1.25)" } : { transform: "scale(1)" }
+            isHovered ? { transform: "scale(1.01)" } : { transform: "scale(1)" }
           }
         />
       }

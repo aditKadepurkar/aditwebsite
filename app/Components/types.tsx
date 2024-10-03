@@ -5,6 +5,8 @@ export type Project = {
   description: string;
   date: string;
   src: string;
+  github?: string;
+  website?: string;
 };
 
 export type Post = {
