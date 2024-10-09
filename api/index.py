@@ -136,17 +136,26 @@ project3 = {
 
 project4 = {
     "number": "4",
-    "title": "TCool",
-    "authors": ["Adit Kadepurkar"],
+    "title": "IK-RRT CANADARM",
+    "authors": ["Adit Kadepurkar, Kuba Kedzior, Thomas Weber"],
     "description": "T",
     "date": "01-21-24",
-    "src": "/bg3.png"
+    "src": "/canadarm.png"
 }
 
 project5 = {
     "number": "5",
-    "title": "Project 5!!",
-    "authors": ["Adit Kadepurkar"],
+    "title": "WINGS",
+    "authors": ["Adit Kadepurkar, Kuba Kedzior, Thomas Weber"],
+    "description": "WOWWWWWWWWWWWWWWWWW",
+    "date": "01-21-24",
+    "src": "/wingslogo.png"
+}
+
+project6 = {
+    "number": "5",
+    "title": "Delphi",
+    "authors": ["Adit Kadepurkar, Matthew Xu"],
     "description": "WOWWWWWWWWWWWWWWWWW",
     "date": "01-21-24",
     "src": "/bg3.png"
