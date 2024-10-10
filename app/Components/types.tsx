@@ -17,9 +17,10 @@ export type Post = {
 };
 
 export type Comment = {
-  number: string;
-  user: string;
+  comment_id: string;
+  post_id: string;
+  commenter: string;
   stars: number;
-  body: string;
+  comment_text: string;
   date: string;
 };

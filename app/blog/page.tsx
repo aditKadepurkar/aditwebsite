@@ -88,8 +88,7 @@ export default async function Home() {
                     <Link
                       href={`/blog/${formatTitle(post.title, post.post_id)}`}
                     >
-                      {" "}
-                      <a className="font-bold">{post.title} </a>{" "}
+                      <span className="font-bold">{post.title} </span>
                     </Link>
                   </h1>
                   <p className="justify-left whitespace-wrap overflow-ellipsis text-base text-slate-200">

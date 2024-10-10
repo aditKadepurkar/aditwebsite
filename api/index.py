@@ -89,7 +89,6 @@ async def posts_all(sort: str = 'Recent'):
 
         with conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cursor:
-                # Prepare SQL query based on sorting option
 
                 if sort == 'Recent':
                     query = sql.SQL("SELECT * FROM posts ORDER BY date DESC")
@@ -103,17 +102,18 @@ async def posts_all(sort: str = 'Recent'):
 
                 print(posts[0].keys())
                 for i in range(len(posts)):
+                    if 'date' in posts[i] and posts[i]['date'] is not None:
+                        posts[i]['date'] = posts[i]['date'].strftime('%Y-%m-%d')
                     posts[i].pop('created_at', None)
                     posts[i].pop('updated_at', None)
 
                 
-                # print(posts[0])
 
 
-                return json.dumps(posts)  # Convert to JSON
+                return json.dumps(posts)
 
     except Exception as e:
-        print(f"Error: {e}")  # Log error for debugging
+        print(f"Error: {e}")  
         raise HTTPException(status_code=500, detail="An error occurred while fetching posts.")
     finally:
         if conn:
@@ -125,7 +125,36 @@ async def post_new(title: str = '', body: str = ''):
 
 @app.get("/posts/{id}")
 async def post_get(id: int):
-    return json.dumps(posts[id])
+    conn = None
+    try:
+        conn = get_db_connection()
+
+        with conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+
+                query = sql.SQL("SELECT * FROM posts WHERE post_id = %s").format(sql.Identifier('id'))
+                cursor.execute(query, (id,))
+                
+                post = cursor.fetchone()
+
+                if post is None:
+                    raise HTTPException(status_code=404, detail="Post not found")
+
+                post.pop('created_at', None)
+                post.pop('updated_at', None)
+                
+                
+                # print(post)
+
+                return json.dumps(post)
+
+    except Exception as e:
+        print(f"Error: {e}")
+        raise HTTPException(status_code=500, detail="An error occurred while fetching the post.")
+    finally:
+        if conn:
+            conn.close()
+
 
 @app.put("posts/{id}")
 async def post_update(title: str = '', body: str = '', password: str = ''):
@@ -137,8 +166,41 @@ async def post_delete(id: int):
 
 ### Comments
 @app.get("/posts/{id}/comments")
-async def comments_all(sort: str = 'Recent'):
-    return comments
+async def comments_all(id: int, sort: str = 'Recent'):
+    conn = None
+    try:
+        conn = get_db_connection()
+
+        with conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+
+                if sort == 'Recent':
+                    query = sql.SQL("SELECT * FROM comments WHERE post_id = %s ORDER BY created_at DESC")
+                elif sort == 'Oldest':
+                    query = sql.SQL("SELECT * FROM comments WHERE post_id = %s ORDER BY created_at ASC")
+                else:
+                    raise HTTPException(status_code=400, detail="Invalid sort parameter")
+
+                cursor.execute(query, (id,))
+                comments = cursor.fetchall()
+
+                for comment in comments:
+                    # comment.pop('updated_at', None)
+                    if 'date' in comment and comment['date'] is not None:
+                        comment['date'] = comment['date'].strftime('%Y-%m-%d')
+                    comment.pop('created_at', None)
+                    
+                print(comments)
+
+                return json.dumps(comments)
+
+    except Exception as e:
+        print(f"Error: {e}")
+        raise HTTPException(status_code=500, detail="An error occurred while fetching comments.")
+    finally:
+        if conn:
+            conn.close()
+
 
 @app.get("/posts/{id}/comments/{comment_id}")
 async def comment_get(id: int, comment_id: int):

@@ -1,14 +1,16 @@
 import { Post, Comment } from "@Components/types";
 
 async function getData(num: number) {
-  const res = await fetch(`http://0.0.0.0:7000/posts/${num - 1}`);
+  const res = await fetch(`http://0.0.0.0:7000/posts/${num }`);
   const data: Post = JSON.parse(await res.json());
+  // console.log(data)
   return data;
 }
+
 async function getComments(num: number) {
-  const res = await fetch(`http://0.0.0.0:7000/posts/${num - 1}/comments`);
+  const res = await fetch(`http://0.0.0.0:7000/posts/${num}/comments`);
   const jsonString = await res.json();
-  const jsonData: Comment[] = jsonString;
+  const jsonData: Comment[] = JSON.parse(jsonString);
   return jsonData;
 }
 
@@ -28,9 +30,14 @@ const months: string[] = [
 ];
 
 function format(text: string) {
-  const month: string = months[Number(text.substring(0, 2)) - 1];
+  if (text === null) {
+    return "October 10, 2024";
+  }
 
-  return month + ` ${text.substring(3, 5)},` + ` 20${text.substring(6, 8)}`;
+  // console.log(text)
+  const month: string = months[Number(text.substring(5, 7)) - 1];
+
+  return month + ` ${text.substring(8, text.length)},` + ` ${text.substring(0, 4)}`;
 }
 
 interface Params {
@@ -52,7 +59,7 @@ export default async function Home({ params: { post } }: Params) {
           </h1>
           <p className="py-5 text-slate-200"> {format(postData.date)} </p>
           <p className="justify-left py-5 text-lg text-slate-200">
-            {postData.body}
+            {postData.content}
           </p>
         </div>
       </div>
@@ -60,11 +67,11 @@ export default async function Home({ params: { post } }: Params) {
         <h1 className="p-5 text-xl font-bold"> Comments </h1>
         <ul>
           {comments.map((comment) => (
-            <li key={comment.number}>
+            <li key={comment.comment_id}>
               <div className="flex w-full  px-10 py-1">
                 <div className="w-4/5 px-4">
-                  <h1 className="text-lg font-semibold"> {comment.user} </h1>
-                  <p className="text-base"> {comment.body} </p>
+                  <h1 className="text-lg font-semibold"> {comment.commenter} </h1>
+                  <p className="text-base"> {comment.comment_text} </p>
                 </div>
                 <div className="left-2 w-1/5 p-4">
                   <p className="text-sm"> {format(comment.date)} </p>
