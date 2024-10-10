@@ -10,9 +10,9 @@ export type Project = {
 };
 
 export type Post = {
-  number: string;
+  post_id: string;
   title: string;
-  body: string;
+  content: string;
   date: string;
 };
 

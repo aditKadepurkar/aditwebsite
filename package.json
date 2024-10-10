@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "fastapi-dev": "/opt/homebrew/anaconda3/bin/python -m uvicorn api.index:app --reload --port 7000",
+    "fastapi-dev": "/opt/homebrew/anaconda3/envs/website/bin/python -m uvicorn api.index:app --reload --port 7000",
     "next-dev": "npm list next || npm install next && next dev",
     "dev": "npm run next-dev",
     "build": "next build",
