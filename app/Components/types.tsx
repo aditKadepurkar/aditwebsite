@@ -7,6 +7,7 @@ export type Project = {
   src: string;
   github?: string;
   website?: string;
+  writeup?: string;
 };
 
 export type Post = {

@@ -17,27 +17,32 @@ const Dropdown: React.FC = () => {
   const items = ["Newest", "Option 2", "Option 3"];
 
   return (
-    <div className="dropdown">
-      <button className="dropdown-toggle" onClick={toggleDropdown}>
-        {selectedItem ? selectedItem : "Select"}{" "}
-        {/* Display currently selected item or 'Select' if no item is selected */}
+    <div className="">
+      
+      
+      <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown button <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
+      </svg>
       </button>
-      {isOpen && (
-        <div
-          className="dropdown-menu absolute right-0 z-50 flex flex-col overflow-hidden rounded-2xl"
-          style={{ marginBottom: "5px", marginTop: "10px" }}
-        >
-          {items.map((item, index) => (
-            <button
-              key={index}
-              className="dropdown-item bg-slate-200 p-3"
-              onClick={() => handleItemClick(item)}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-      )}
+
+      <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+          <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+            <li>
+              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+            </li>
+            <li>
+              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+            </li>
+            <li>
+              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+            </li>
+            <li>
+              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+            </li>
+          </ul>
+      </div>
+
+
     </div>
   );
 };

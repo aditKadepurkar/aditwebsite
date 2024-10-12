@@ -27,15 +27,20 @@ const ProjectModal = (props: ProjectProps) => {
         {props.title}
       </h1>
       <p className="text-ellipsis text-zinc-400">{truncate(props.desc, 100)}</p>
-      <Link href={props.github ? props.github : "https://github.com/aditKadepurkar"} className="z-10 sm:m-10 m-1">
-          <Image
-            className="relative sm:scale-100 scale-50 overflow-hidden transition duration-100 ease-in-out sm:hover:scale-105"
-            src="/github-mark-white.svg"
-            alt="project github link"
-            width={90}
-            height={90}
-          />
-        </Link>
+
+      <div className="">
+        {props.github ?
+        <Link href={props.github} className="z-10 sm:m-10 m-1">
+            <Image
+              className="relative sm:scale-100 scale-50 overflow-hidden transition duration-100 ease-in-out sm:hover:scale-105"
+              src="/github-mark-white.svg"
+              alt="project github link"
+              width={90}
+              height={90}
+            />
+          </Link>
+        : <></>}
+      </div>
     </div>
   );
   const defaultContent = (

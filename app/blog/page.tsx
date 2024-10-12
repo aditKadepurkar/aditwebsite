@@ -74,8 +74,8 @@ export default async function Home() {
       <div className="">
         <div className="flex px-5 py-3">
           <h2 className="left-2 flex text-slate-200">Number of Posts: {len}</h2>
-          <div className="absolute right-12 rounded-full bg-slate-200 p-3">
-            <Dropdown />{" "}
+          <div className="absolute right-12 p-3">
+            <Dropdown />
             {/* I want to update this at some point, might work off of how wings handles fieldselectmodal */}
           </div>
         </div>
