@@ -48,11 +48,9 @@ const ProjectModal = (props: ProjectProps) => {
           className="relative -z-10 w-2/5 scale-100 object-cover overflow-hidden rounded-2xl shadow-2xl shadow-gray-900"
           src={`${props.src}`}
           alt="/linkedin.png"
-          objectFit="cover"
           fill
         />
     </div>
-
   )
 
   return (

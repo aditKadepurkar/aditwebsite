@@ -23,7 +23,13 @@ const nextConfig = {
             ? "http://127.0.0.1:7000/openapi.json"
             : "/api/openapi.json",
       },
+      
     ];
+  },
+  webpack: (config, { isServer }) => {
+    // Disable Webpack caching
+    config.cache = false;
+    return config;
   },
 };
 

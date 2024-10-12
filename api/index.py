@@ -224,7 +224,7 @@ async def comment_delete(id: int, comment_id: int):
 project1 = {
     "number": "1",
     "title": "Delphi",
-    "authors": ["Adit Kadepurkar"],
+    "authors": ["Adit Kadepurkar", "Matthew Xu"],
     "description": "Delphi makes using computers easier than every before!",
     "date": "08-21-24",
     "src": "/bg2.png",
@@ -267,15 +267,6 @@ project5 = {
     "description": "WOWWWWWWWWWWWWWWWWW",
     "date": "01-21-24",
     "src": "/wingslogo.png"
-}
-
-project6 = {
-    "number": "5",
-    "title": "Delphi",
-    "authors": ["Adit Kadepurkar, Matthew Xu"],
-    "description": "WOWWWWWWWWWWWWWWWWW",
-    "date": "01-21-24",
-    "src": "/bg3.png"
 }
 
 projects = [project1, project2, project3, project4, project5]
