@@ -1,4 +1,6 @@
 import { Post, Comment } from "@Components/types";
+import Image from "next/image";
+import Link from "next/link";
 
 async function getData(num: number) {
   const res = await fetch(`http://0.0.0.0:7000/posts/${num }`);
@@ -52,6 +54,22 @@ export default async function Home({ params: { post } }: Params) {
 
   return (
     <div className="relative top-[12em]  mx-auto mb-8 mt-8 flex max-w-screen-lg flex-col rounded-xl bg-stone-800 p-4 shadow-2xl shadow-gray-900">
+      <div className="absolute top-4 z-[5] left-4">
+        <Link
+          href={"/blog"}
+          className="z-10"
+        >
+
+          <Image
+            className="relative -z-10 scale-100 overflow-hidden rounded-2xl shadow-2xl shadow-gray-900 transition duration-100 ease-in-out hover:scale-105"
+            src="/backbutton.png"
+            alt="/backbutton.png"
+            width={40}
+            height={40}
+            priority
+          />
+        </Link>
+      </div>
       <div className="flex px-10 py-5">
         <div className="p-4">
           <h1 className="justify-left flex py-3 text-3xl font-bold text-slate-200">
