@@ -21,7 +21,7 @@ export type ProjectProps = {
 const ProjectModal = (props: ProjectProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const hoverContent = (
-    <div className={`absolute p-4 top-0 left-0 w-full h-full flex-col justify-center items-center
+    <div className={`cursor-pointer absolute p-4 top-0 left-0 w-full h-full flex-col justify-center items-center
     text-center sm:text-2xl text-md font-bold z-10 transition duration-300 ease-in-out flex py-6 ${isHovered ? "opacity-100" : "opacity-0"}`}>
       <h1 className="m-auto px-2 text-center text-2xl font-bold text-zinc-200">
         {props.title}

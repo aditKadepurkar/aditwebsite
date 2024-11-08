@@ -27,7 +27,7 @@ const navBar = () => {
           Projects
         </Link>
         <Link
-          href="/test"
+          href="/demos"
           className="transition: box-sizing: border-box mx-[0.5em] rounded-full bg-stone-800 px-4 py-2 font-bold text-white duration-500 ease-out hover:bg-stone-700"
         >
           Button 3
