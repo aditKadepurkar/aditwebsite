@@ -1,16 +1,18 @@
+import CommentModal from "@/app/Components/comment";
 import { Post, Comment } from "@Components/types";
 import Image from "next/image";
 import Link from "next/link";
+require('dotenv').config();
 
 async function getData(num: number) {
-  const res = await fetch(`http://0.0.0.0:7000/posts/${num }`);
+  // console.log(`${process.env.ENDPOINTPOSTS}/${num}`);
+  const res = await fetch(`http://${process.env.ENDPOINTPOSTS}/${num}`);
   const data: Post = JSON.parse(await res.json());
-  // console.log(data)
   return data;
 }
 
 async function getComments(num: number) {
-  const res = await fetch(`http://0.0.0.0:7000/posts/${num}/comments`);
+  const res = await fetch(`http://${process.env.ENDPOINTPOSTS}/${num}/comments`);
   const jsonString = await res.json();
   const jsonData: Comment[] = JSON.parse(jsonString);
   return jsonData;
@@ -83,6 +85,9 @@ export default async function Home({ params: { post } }: Params) {
       </div>
       <div className="rounded-2xl bg-slate-300 p-3 pb-10">
         <h1 className="p-5 text-xl font-bold"> Comments </h1>
+        {/* <div className="w-full"> */}
+          <CommentModal/>
+        {/* </div> */}
         <ul>
           {comments.map((comment) => (
             <li key={comment.comment_id}>
@@ -98,8 +103,6 @@ export default async function Home({ params: { post } }: Params) {
             </li>
           ))}
         </ul>
-
-        {/* This is where the comments will want to be loaded */}
       </div>
     </div>
   );
