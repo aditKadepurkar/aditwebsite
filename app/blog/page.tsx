@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Dropdown from "@Components/dropdown";
 import { Post } from "@Components/types";
-const axios = require('axios');
 
 
 

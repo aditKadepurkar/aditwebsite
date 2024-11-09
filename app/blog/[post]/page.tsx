@@ -85,9 +85,7 @@ export default async function Home({ params: { post } }: Params) {
       </div>
       <div className="rounded-2xl bg-slate-300 p-3 pb-10">
         <h1 className="p-5 text-xl font-bold"> Comments </h1>
-        {/* <div className="w-full"> */}
-          <CommentModal/>
-        {/* </div> */}
+        <CommentModal postId={Number(post.substring(0, 1))} />
         <ul>
           {comments.map((comment) => (
             <li key={comment.comment_id}>

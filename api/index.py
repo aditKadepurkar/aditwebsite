@@ -159,8 +159,33 @@ async def comment_get(id: int, comment_id: int):
     return {}
 
 @app.post("/posts/{id}/comments/")
-async def comment_post(id: int, text: str = ''):
-    return {}
+async def comment_post(id: int, name: str = '', text: str = ''):
+    print("we are in!!")
+    
+    # posts the comment to the database
+    conn = None
+    try:
+        conn = get_db_connection()
+
+        with conn:
+            with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+
+                query = sql.SQL("INSERT INTO comments (comment_id, post_id, commenter, comment_text) VALUES (%s, %s, %s, %s)")
+                cursor.execute(query, ("11", id, name, text))
+
+                conn.commit()
+                
+                # return that it was successful
+                return {"message": "Comment posted successfully."}
+
+    except Exception as e:
+        print(f"Error: {e}")
+        raise HTTPException(status_code=500, detail="An error occurred while posting the comment.")
+    finally:
+        if conn:
+            conn.close()
+    
+    return {"message": "Comment failed to post."}
 
 @app.put("/posts/{id}/comments/{comment_id}")
 async def comment_edit(id: int, comment_id: int, text: str = ''):
