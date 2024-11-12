@@ -66,6 +66,7 @@ function formatTitle(title: string, num: string) {
 
 export default async function Home() {
   const posts = await getData();
+
   const len: number = posts.length;
 
   return (

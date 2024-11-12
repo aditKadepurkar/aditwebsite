@@ -9,6 +9,7 @@ import os
 from psycopg2.extras import RealDictCursor
 
 
+
 load_dotenv('/Users/aditkadepurkar/Documents/dev/aditwebsite/api/.env')
 
 db_params = {
@@ -158,10 +159,22 @@ async def comments_all(id: int, sort: str = 'Recent'):
 async def comment_get(id: int, comment_id: int):
     return {}
 
+from pydantic import BaseModel
+class Comment(BaseModel):
+    num: int
+    name: str
+    text: str
+
 @app.post("/posts/{id}/comments/")
-async def comment_post(id: int, name: str = '', text: str = ''):
-    print("we are in!!")
+async def comment_post(id: int, comment: Comment):
+    num = comment.num
+    name = comment.name
+    text = comment.text
     
+    if name == '' or text == '':
+        raise HTTPException(status_code=400, detail="Name and text are required fields.")
+    
+    # print(f"Name: {name}, Text: {text}")
     # posts the comment to the database
     conn = None
     try:
@@ -169,9 +182,11 @@ async def comment_post(id: int, name: str = '', text: str = ''):
 
         with conn:
             with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+                cursor.execute("SELECT COALESCE(MAX(comment_id), 0) + 1 AS new_comment_id FROM comments")
+                new_comment_id = cursor.fetchone()["new_comment_id"]
 
                 query = sql.SQL("INSERT INTO comments (comment_id, post_id, commenter, comment_text) VALUES (%s, %s, %s, %s)")
-                cursor.execute(query, ("11", id, name, text))
+                cursor.execute(query, (new_comment_id, id, name, text))
 
                 conn.commit()
                 

@@ -6,13 +6,13 @@ require('dotenv').config();
 
 async function getData(num: number) {
   // console.log(`${process.env.ENDPOINTPOSTS}/${num}`);
-  const res = await fetch(`http://${process.env.ENDPOINTPOSTS}/${num}`);
+  const res = await fetch(`http://0.0.0.0:7000/posts/${num}`);
   const data: Post = JSON.parse(await res.json());
   return data;
 }
 
 async function getComments(num: number) {
-  const res = await fetch(`http://${process.env.ENDPOINTPOSTS}/${num}/comments`);
+  const res = await fetch(`http://0.0.0.0:7000/posts/${num}/comments`);
   const jsonString = await res.json();
   const jsonData: Comment[] = JSON.parse(jsonString);
   return jsonData;

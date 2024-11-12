@@ -4,6 +4,8 @@ import { useState } from "react";
 
 async function postComment(name: string, text: string, num: number) {
     // console.log(`${process.env.ENDPOINTPOSTS}/${num}/comments/`);
+
+    console.log(name, text, num);
     
     const res = await fetch(`http://0.0.0.0:7000/posts/${num}/comments/`, {
         method: 'POST',
@@ -11,7 +13,7 @@ async function postComment(name: string, text: string, num: number) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({ num, name, text }),
-        mode: 'no-cors'
+        // mode: 'no-cors'
     });
 
     if (!res.ok) {
@@ -30,11 +32,21 @@ const CommentModal = (props: CommentProps) => {
     const [comment, setComment] = useState("");
 
     const handlePost = async () => {
+        if (comment === "") {
+            return;
+        }
+
         try {
-          const ret = await postComment(name, comment, props.postId);
+            if (name === "") {
+                const ret = await postComment("User", comment, props.postId);
+            } else {
+                const ret = await postComment(name, comment, props.postId);
+            }
         } catch (error) {
             throw new Error(`Error posting comment: ${error}`);
-      };
+        };
+        setName("");
+        setComment("");
     }
 
     const commentContent = (
@@ -46,12 +58,14 @@ const CommentModal = (props: CommentProps) => {
                 title="Name"
                 className="w-full h-20 p-2 mb-2 bg-slate-200 text-gray-700 rounded-xl resize-none "
                 rows={1}
+                value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Write your name here(optional)"
             />
             <textarea
                 title="Comment"
                 className="w-full h-20 p-2 bg-slate-200 text-gray-700 rounded-xl"
+                value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Write your comment here..."
             />
