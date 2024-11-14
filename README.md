@@ -1,5 +1,7 @@
 # Adit Kadepurkar's personal website!
-I don't know if I will make this repo public ever, but if you can read this, that is great!
+
+## How to run
+Open two terminals, run `npm run dev` and `npm run fastapi-dev`
 
 # Design
 This website uses a NextJS frontend, a python(fastAPI) backend, and PostgreSQL Database.
