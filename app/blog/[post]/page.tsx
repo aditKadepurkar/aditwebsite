@@ -45,12 +45,18 @@ function format(text: string) {
 }
 
 interface Params {
-  params: {
+  params: Promise<{
     post: string;
-  };
+  }>;
 }
 
-export default async function Home({ params: { post } }: Params) {
+export default async function Home(props: Params) {
+  const params = await props.params;
+
+  const {
+    post
+  } = params;
+
   const comments: Comment[] = await getComments(Number(post.substring(0, 1)));
   const postData: Post = await getData(Number(post.substring(0, 1)));
 

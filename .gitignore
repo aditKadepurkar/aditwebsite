@@ -34,3 +34,4 @@ api/.env
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/api/__pycache__/
