@@ -50,12 +50,8 @@ interface Params {
   }>;
 }
 
-export default async function Home(props: Params) {
-  const params = await props.params;
-
-  const {
-    post
-  } = params;
+export default async function Home({ params }: Params) {
+  const { post } = await params;
 
   const comments: Comment[] = await getComments(Number(post.substring(0, 1)));
   const postData: Post = await getData(Number(post.substring(0, 1)));
