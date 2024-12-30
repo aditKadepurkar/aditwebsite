@@ -6,6 +6,7 @@ import ProjectModal from "../Components/project";
 const MAX_BODY_PEEK = 100;
 
 function getData() {
+  // moving to static data
   const data: Project[] = [
     {
       "number": "1",
@@ -15,6 +16,7 @@ function getData() {
       "date": "08-21-24",
       "src": "/bg2.png",
       "github": "https://github.com/aditkadepurkar/delphi/",
+      "writeup": "/writeups/delphi.md"
     },
     {
       "number": "2",
@@ -74,6 +76,7 @@ export default async function Home() {
                   desc={project.description}
                   github={project.github}
                   website={project.website}
+                  writeup={project.writeup}
                 />
               </div>
             </li>

@@ -1,25 +1,32 @@
 import Link from "next/link";
 import Dropdown from "@Components/dropdown";
 import { Post } from "@Components/types";
-
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 
 const MAX_BODY_PEEK: number = 500;
 
 
-async function getData(sort: string = 'Recent'): Promise<Post[]> {
-  try {
-    const res = await fetch(`http://0.0.0.0:7000/posts?sort=${sort}`);
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    const data: Post[] = JSON.parse(await res.json());
+// async function getData(sort: string = 'Recent'): Promise<Post[]> {
+//   try {
+//     const res = await fetch(`http://0.0.0.0:7000/posts?sort=${sort}`);
+//     if (!res.ok) {
+//       throw new Error(`HTTP error! status: ${res.status}`);
+//     }
+//     const data: Post[] = JSON.parse(await res.json());
 
-    return data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    throw error;
-  }
+//     return data;
+//   } catch (error) {
+//     console.error("Error fetching data:", error);
+//     throw error;
+//   }
+// }
+
+function getData() {
+  // just a list of markdown files(posts)
+  return ["HelloWorld"];
 }
 
 // async function getData() {
@@ -64,8 +71,8 @@ function formatTitle(title: string, num: string) {
   return ret;
 }
 
-export default async function Home() {
-  const posts = await getData();
+export default function Home() {
+  const posts = getData();
 
   const len: number = posts.length;
 
@@ -80,27 +87,30 @@ export default async function Home() {
           </div>
         </div>
         <ul>
-          {posts.map((post) => (
-            <li key={post.post_id}>
-              <div className="flex px-10 py-5">
-                <div className="w-4/5 p-4">
-                  <h1 className="justify-left font-bold-100 flex text-3xl text-blue-400">
-                    <Link
-                      href={`/blog/${formatTitle(post.title, post.post_id)}`}
-                    >
-                      <span className="font-bold">{post.title} </span>
-                    </Link>
-                  </h1>
-                  <p className="justify-left whitespace-wrap overflow-ellipsis text-base text-slate-200">
-                    {truncate(post.content)}...
-                  </p>
+          {posts.map((post, index) => {
+            const filePath = path.join(process.cwd(), "public/markdown", `${post}.md`);
+            const fileContents = fs.readFileSync(filePath, "utf8");
+            const { content, data } = matter(fileContents);
+            return (
+              <li key={index}>
+                <div className="flex px-10 py-5">
+                  <div className="w-4/5 p-4">
+                    <h1 className="justify-left font-bold-100 flex text-3xl text-blue-400">
+                      <Link href={`/blog/${index}${(post)}`}>
+                        <span className="font-bold">{data.title}</span>
+                      </Link>
+                    </h1>
+                    <p className="justify-left whitespace-wrap overflow-ellipsis text-base text-slate-200">
+                      {truncate(content)}...
+                    </p>
+                  </div>
+                  <div className="w-1/5 p-4">
+                    <p className="text-slate-200"> {format(String(data.date))} </p>
+                  </div>
                 </div>
-                <div className="w-1/5 p-4">
-                  <p className="text-slate-200"> {format(post.date)} </p>
-                </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

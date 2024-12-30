@@ -16,6 +16,7 @@ export type ProjectProps = {
   desc: string;
   github?: string;
   website?: string;
+  writeup?: string;
 };
 
 const ProjectModal = (props: ProjectProps) => {
@@ -28,18 +29,30 @@ const ProjectModal = (props: ProjectProps) => {
       </h1>
       <p className="text-ellipsis text-zinc-400">{truncate(props.desc, 100)}</p>
 
-      <div className="">
-        {props.github ?
-        <Link href={props.github} className="z-10 sm:m-10 m-1">
-            <Image
-              className="relative sm:scale-100 scale-50 overflow-hidden transition duration-100 ease-in-out sm:hover:scale-105"
-              src="/github-mark-white.svg"
-              alt="project github link"
-              width={90}
-              height={90}
-            />
+      <div className="flex justify-center space-x-4">
+        {props.github ? (
+          <Link href={props.github} className="z-10 sm:m-10 m-1">
+        <Image
+          className="relative sm:scale-100 scale-50 overflow-hidden transition duration-100 ease-in-out sm:hover:scale-105"
+          src="/github-mark-white.svg"
+          alt="project github link"
+          width={90}
+          height={90}
+        />
           </Link>
-        : <></>}
+        ) : null}
+
+        {props.writeup ? (
+          <Link href={props.writeup} className="z-10 sm:m-10 m-1">
+        <Image
+          className="relative sm:scale-100 scale-50 overflow-hidden transition duration-100 ease-in-out sm:hover:scale-105"
+          src="/writeupwhite.png"
+          alt="project writeup link"
+          width={90}
+          height={90}
+        />
+          </Link>
+        ) : null}
       </div>
     </div>
   );
