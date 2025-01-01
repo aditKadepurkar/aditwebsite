@@ -26,7 +26,7 @@ const MAX_BODY_PEEK: number = 500;
 
 function getData() {
   // just a list of markdown files(posts)
-  return ["HelloWorld"];
+  return ["HelloWorld", "Delphi", "SpeechHacks", "Canadarm", "PersonalWebsite"];
 }
 
 // async function getData() {
@@ -60,9 +60,9 @@ function format(text: string) {
   if (text === null) {
     return "October 10, 2024";
   }
-  const month: string = months[Number(text.substring(0, 2)) - 1];
+  const month: string = months[Number(text.substring(5, 7)) - 1];
 
-  return month + ` ${text.substring(3, 5)},` + ` 20${text.substring(6, 8)}`;
+  return month + ` ${text.substring(8, text.length)},` + ` ${text.substring(0, 4)}`;
 }
 
 function formatTitle(title: string, num: string) {
@@ -105,7 +105,7 @@ export default function Home() {
                     </p>
                   </div>
                   <div className="w-1/5 p-4">
-                    <p className="text-slate-200"> {format(String(data.date))} </p>
+                    <p className="text-slate-200"> {format(data.date.toISOString().substring(0, 10))} </p>
                   </div>
                 </div>
               </li>

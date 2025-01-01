@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw'
 
 require('dotenv').config();
 
@@ -42,7 +42,6 @@ const months: string[] = [
 ];
 
 function format(text: string) {
-
   if (text === null) {
     return "October 10, 2024";
   }
@@ -85,12 +84,12 @@ export default async function Home({ params }: Params) {
         </Link>
       </div>
       <div className="flex px-10 py-5">
-        <div className="p-4">
+        <div className="p-4 w-full">
           <h1 className="justify-left flex py-3 text-3xl font-bold text-slate-200">
             {data.title}
           </h1>
-          <div className="prose prose-invert justify-left py-5 text-slate-200">
-            <ReactMarkdown>{content}</ReactMarkdown>
+          <div className="prose prose-invert justify-left py-5 text-slate-200 w-full max-w-none">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
           </div>
         </div>
       </div>
