@@ -16,7 +16,7 @@ function getData() {
       "date": "08-21-24",
       "src": "/bg2.png",
       "github": "https://github.com/aditkadepurkar/delphi/",
-      "writeup": "/blog/1Delphi"
+      // "writeup": "/blog/1Delphi"
     },
     {
       "number": "2",
@@ -35,7 +35,7 @@ function getData() {
       "date": "01-21-24",
       "src": "/bg3.png",
       "github": "https://github.com/aditKadepurkar/SpeechHacks",
-      "writeup": "/blog/2SpeechHacks"
+      // "writeup": "/blog/2SpeechHacks"
     },
     {
       "number": "4",
@@ -62,7 +62,7 @@ function getData() {
       "date": "12-21-24",
       "src": "/bg2.png",
       "github": "https://github.com/aditKadepurkar/aditwebsite",
-      "writeup": "/blog/4PersonalWebsite"
+      // "writeup": "/blog/4PersonalWebsite"
     }
 
   ];
