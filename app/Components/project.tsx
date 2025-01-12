@@ -6,9 +6,26 @@ import Link from "next/link";
 
 
 function truncate(text: string, len: number) {
-  const ret: string = text.substring(0, len);
+  if (text.length <= len) {
+    return text;
+  }
+  const ret: string = text.substring(0, len).trim() + "...";
   return ret;  
 }
+
+const breakpoints = {
+  'sm': 640,
+  'md': 768,
+  'lg': 1024,
+  'xl': 1280
+};
+
+export const isBreakpoint = (breakpoint: keyof typeof breakpoints) => {
+  if (typeof window !== 'undefined') {
+    return window.innerWidth >= breakpoints[breakpoint];
+  }
+  return false;
+};
 
 export type ProjectProps = {
   title: string;
@@ -21,13 +38,16 @@ export type ProjectProps = {
 
 const ProjectModal = (props: ProjectProps) => {
   const [isHovered, setIsHovered] = useState(false);
+
   const hoverContent = (
     <div className={`cursor-pointer absolute p-4 top-0 left-0 w-full h-full flex-col justify-center items-center
     text-center sm:text-2xl text-md font-bold z-10 transition duration-300 ease-in-out flex py-6 ${isHovered ? "opacity-100" : "opacity-0"}`}>
       <h1 className="m-auto px-2 text-center text-2xl font-bold text-zinc-200">
         {props.title}
       </h1>
-      <p className="text-ellipsis text-zinc-400">{truncate(props.desc, 100)}</p>
+      <p className="text-ellipsis text-zinc-400">
+      {truncate(props.desc, isBreakpoint('md') ? 100 : 50)}
+      </p>
 
       <div className="flex justify-center space-x-4">
         {props.github ? (

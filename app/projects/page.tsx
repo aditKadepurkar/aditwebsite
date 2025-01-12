@@ -50,7 +50,7 @@ function getData() {
       "number": "5",
       "title": "WINGS",
       "authors": ["Adit Kadepurkar, Kuba Kedzior, Thomas Weber"],
-      "description": "WOWWWWWWWWWWWWWWWWW",
+      "description": "WINGS is a ground station that provides real-time telemetry data for the UMN Rocket Team.",
       "date": "01-21-24",
       "src": "/wingslogo.png"
     },
