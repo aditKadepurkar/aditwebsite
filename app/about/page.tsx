@@ -18,8 +18,7 @@ export default function Home() {
       {/* short introduction */}
       <div className="relative">
         <div className="p-4 w-full text-white">
-          <h1 className="text-4xl">Adit Kadepurkar</h1>
-          <h2 className="text-2xl">Undergraduate Student</h2>
+          <h1 className="text-4xl">About Me!</h1>
           <h3 className="text-l text-wrap">Hey there! I&apos;m Adit Kadepurkar, a second year Computer Science student at the University of Minnesota - TC. 
           I&apos;m passionate about software development, robotics, and machine learning. I work as an undergraduate research assistant at the Robotics: 
           Perception and Manipulation laboratory under Karthik Desingh, where I work on policy learning for robotic manipulation tasks(specifically RL fine tuning methods).

@@ -26,7 +26,7 @@ const MAX_BODY_PEEK: number = 500;
 
 function getData() {
   // just a list of markdown files(posts)
-  return ["HelloWorld", "Canadarm"] // "Delphi", "SpeechHacks", "Canadarm", "PersonalWebsite"];
+  return ["HelloWorld", "Canadarm", "SpeechHacks"] // "Delphi", "SpeechHacks", "Canadarm", "PersonalWebsite"];
 }
 
 // async function getData() {

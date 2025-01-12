@@ -20,10 +20,13 @@ require('dotenv').config();
 // }
 
 async function getComments(num: number) {
-  const res = await fetch(`http://0.0.0.0:7000/posts/${num}/comments`);
-  const jsonString = await res.json();
-  const jsonData: Comment[] = JSON.parse(jsonString);
-  return jsonData;
+  try {
+    const res = await fetch(`http://0.0.0.0:7000/posts/${num}/comments`);
+    const jsonString = await res.json();
+    return jsonString ? JSON.parse(jsonString) : [];
+  } catch (error) {
+    return [];
+  }
 }
 
 const months: string[] = [

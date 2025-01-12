@@ -13,6 +13,7 @@ export default function Home() {
 
   return (
     <div className="relative top-[12em]  mx-auto mb-8 mt-8 flex max-w-screen-lg flex-col rounded-xl bg-stone-800 p-4 shadow-2xl shadow-gray-900">
+      <h1 className="text-4xl text-white">WIP.</h1>
         <ul className="flex flex-wrap items-center justify-center">
         {demos.map((demo) => (
             <li key={demo.number}>
