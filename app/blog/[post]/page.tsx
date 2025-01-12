@@ -52,14 +52,18 @@ function format(text: string) {
 }
 
 
-interface Params {
+type Props = Promise<{
   params: {
-    post: string;
-  };
-}
+    post: string
+  }
+}>
 
-export default async function Home({ params }: Params) {
-  const { post } = await params;
+export default async function Page({
+  params,
+}: {
+  params: { post: string };
+}) {
+  const { post } = params;
   const comments: Comment[] = await getComments(Number(post.substring(0, 1)));
 
   const filePath = path.join(process.cwd(), 'public/markdown', `${post.substring(1, post.length)}.md`);

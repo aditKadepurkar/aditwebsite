@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "fastapi-dev": "/opt/homebrew/anaconda3/envs/website/bin/python -m uvicorn api.index:app --reload --port 7000",
+    "fastapi-dev": "python -m uvicorn api.index:app --reload --port 7000",
     "next-dev": "npm list next || npm install next && next dev",
     "dev": "npm run next-dev",
     "next": "npm list next || next dev",
     "build": "next build",
-    "start": "npm run next-dev && python -m uvicorn api.index:app --port 7000",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -24,7 +24,8 @@
     "eslint": "^9.15.0",
     "eslint-config-next": "^15.0.3",
     "gray-matter": "^4.0.3",
-    "next": "^15.0.3",
+    "next": "^14.2.17",
+    "node": "^22.5.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",

@@ -10,7 +10,7 @@ from psycopg2.extras import RealDictCursor
 
 
 
-load_dotenv('/Users/aditkadepurkar/Documents/dev/aditwebsite/api/.env')
+load_dotenv('/home/ubuntu/dev/website/aditwebsite/api/.env')
 
 db_params = {
     'dbname': os.getenv('DB_NAME'),
