@@ -3,7 +3,7 @@ import * as React from "react";
 
 export default function Home() {
   return (
-    <div className="relative top-[12em]  mx-auto mb-8 mt-8 flex max-w-screen-lg 
+    <div className="relative top-[12em]  mx-auto mb-8 mt-0 md:mt-8 flex max-w-screen-lg 
           flex-col md:flex-row rounded-xl bg-stone-800 p-4 shadow-2xl shadow-gray-900">
       {/* pfp */}
       <div className="mx-auto md:mx-0 flex justify-center flex-shrink-0 p-10  h-[300px] w-[300px]">

@@ -26,7 +26,7 @@ const MAX_BODY_PEEK: number = 500;
 
 function getData() {
   // just a list of markdown files(posts)
-  return ["HelloWorld", "Canadarm", "SpeechHacks"] // "Delphi", "SpeechHacks", "Canadarm", "PersonalWebsite"];
+  return ["HelloWorld", "Canadarm", "SpeechHacks"].reverse() // "Delphi", "SpeechHacks", "Canadarm", "PersonalWebsite"];
 }
 
 // async function getData() {
@@ -36,9 +36,14 @@ function getData() {
 //   return data;
 // }
 
-function truncate(text: string) {
-  const ret: string = text.substring(0, MAX_BODY_PEEK);
+function truncate(text: string, length: number = MAX_BODY_PEEK) {
+  var ret = text.substring(0, length);
+
+  ret = ret.replace(/[#*`_~]/g, '');
+  ret = ret.trim();
+
   return ret;
+
 }
 
 const months: string[] = [
@@ -77,11 +82,13 @@ export default function Home() {
   const len: number = posts.length;
 
   return (
-    <div className="relative top-[12em]  mx-auto mt-8 flex max-w-screen-lg rounded-xl bg-stone-800 p-4 shadow-2xl shadow-gray-900">
+    <div className="relative top-[12em]  mx-auto mt-0 md:mt-8 flex max-w-screen-lg rounded-xl bg-stone-800 p-2 md:p-4 shadow-2xl shadow-gray-900 overflow-x-hidden">
       <div className="">
         <div className="flex px-5 py-3">
-          <h2 className="left-2 flex text-slate-200">Number of Posts: {len}</h2>
-          <div className="absolute right-12 p-3">
+          <h2 className="left-0 md:left-2 flex text-slate-200 text-base md:text-lg">Number of Posts: {len}</h2>
+          <div className="absolute right-0 md:right-12 p-3 top-2">
+            
+            
             <Dropdown />
             {/* I want to update this at some point, might work off of how wings handles fieldselectmodal */}
           </div>
@@ -101,10 +108,10 @@ export default function Home() {
                       </Link>
                     </h1>
                     <p className="justify-left whitespace-wrap overflow-ellipsis text-base text-slate-200">
-                      {truncate(content)}...
+                      {truncate(content, 300)}...
                     </p>
                   </div>
-                  <div className="w-1/5 p-4">
+                    <div className="hidden w-1/5 p-4 md:block">
                     <p className="text-slate-200"> {format(data.date.toISOString().substring(0, 10))} </p>
                   </div>
                 </div>

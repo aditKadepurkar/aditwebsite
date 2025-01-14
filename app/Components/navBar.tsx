@@ -17,6 +17,8 @@ const navBar = () => {
         return 'Demos';
       case '/blog':
         return 'Blog';
+      case '/about':
+        return 'About';
       default:
         return 'Menu';
     }
@@ -57,6 +59,9 @@ const navBar = () => {
             </Link>
             <Link href="/blog" onClick={handleLinkClick} className="transition: box-sizing: border-box rounded-full bg-stone-800 px-4 py-2 font-bold text-white duration-500 ease-out hover:bg-stone-700">
               Blog
+            </Link>
+            <Link href="/about" onClick={handleLinkClick} className="transition: box-sizing: border-box rounded-full bg-stone-800 px-4 py-2 font-bold text-white duration-500 ease-out hover:bg-stone-700">
+              About Me
             </Link>
           </div>
         </div>
