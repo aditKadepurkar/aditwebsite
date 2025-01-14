@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@Components/footer";
 import NavBar from "@Components/navBar";
 import LoginButton from "./Components/loginButton";
+import Background from "./Components/background";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,8 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} text-gray z-[11] bg-fixed bg-[url('/bg3.png')] bg-cover bg-no-repeat`}
-      >
+      <body className={`${inter.className} text-gray z-[11]`}>
+        <Background />
         <div className="hidden absolute top-10 right-10 z-10">
           <LoginButton/>
         </div>
