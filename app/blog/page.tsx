@@ -101,17 +101,17 @@ export default function Home() {
             return (
               <li key={index}>
                 <div className="flex px-10 py-5">
-                  <div className="w-4/5 p-4">
+                  <div className="w-full md:w-4/5 p-4">
                     <h1 className="justify-left font-bold-100 flex text-3xl text-blue-400">
                       <Link href={`/blog/${index}${(post)}`}>
                         <span className="font-bold">{data.title}</span>
                       </Link>
                     </h1>
-                    <p className="justify-left whitespace-wrap overflow-ellipsis text-base text-slate-200">
+                    <p className="md:justify-left whitespace-wrap overflow-ellipsis text-base text-slate-200">
                       {truncate(content, 300)}...
                     </p>
                   </div>
-                    <div className="hidden w-1/5 p-4 md:block">
+                    <div className="hidden w-0 md:w-1/5 p-4 md:block">
                     <p className="text-slate-200"> {format(data.date.toISOString().substring(0, 10))} </p>
                   </div>
                 </div>
