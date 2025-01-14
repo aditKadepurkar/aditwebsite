@@ -11,7 +11,7 @@ module.exports = {
         "spin-slow": "spin 3s linear infinite",
         grow: "grow 1s ease-in-out",
         loading: "loading 1s ease-in-out infinite",
-        "fade-in": "fadeIn 2s ease-in-out",
+        "fade-in": "fadeIn 3s ease-in-out",
         "load-nav": "loadNav 2s ease-in-out",
         pfp: "pfpCooking 2s ease-in-out",
         typewriter: "typewriter 2s steps(23) forwards",
@@ -64,9 +64,9 @@ module.exports = {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         fadeIn: {
-          "0%": { opacity: "0", transform: "translateY(0)" },
-          "30%": { opacity: "0", transform: "translateY(0)" },
-          "100%": { opacity: "1", transform: "translateY(24em)" },
+          "0%": { opacity: "0"},
+          "30%": { opacity: "0"},
+          "100%": { opacity: "1"},
         },
         loading: {
           "0%": {

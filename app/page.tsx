@@ -79,7 +79,7 @@ export default async function Home() {
 
       </div>
 
-      <div className="absolute hidden md:block z-10 scale-[1] bottom-10 justify-center rounded-full bg-neutral-800 p-10 ">
+      <div className="absolute animate-fade-in hidden md:block z-10 scale-[1] bottom-10 justify-center rounded-full bg-neutral-800 p-10 ">
         <Typewriter
           text="Hey! Take a look around!"
           text2=" "
