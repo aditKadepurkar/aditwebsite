@@ -77,7 +77,7 @@ export default async function Page({
   // console.log(data);
 
   return (
-    <div className="relative top-[12em] mx-auto mb-8 mt-8 flex max-w-screen-lg flex-col rounded-xl bg-stone-800 p-4 shadow-2xl shadow-gray-900">
+    <div className="relative top-[12em] mx-auto mb-8 mt-0 md:mt-8 flex max-w-screen-lg flex-col rounded-xl bg-stone-800 pt-4 shadow-2xl shadow-gray-900">
       <div className="absolute top-4 z-[5] left-4">
         <Link href="/blog" className="z-10">
           <Image
@@ -90,7 +90,7 @@ export default async function Page({
           />
         </Link>
       </div>
-      <div className="flex px-10 py-5">
+      <div className="flex px-2 py-5">
         <div className="p-4 w-full">
           <h1 className="justify-left flex py-3 text-3xl font-bold text-slate-200">
             {data.title}
