@@ -6,6 +6,7 @@ import NavBar from "@Components/navBar";
 import LoginButton from "./Components/loginButton";
 import Background from "./Components/background";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
